@@ -1,45 +1,39 @@
-function filterNumbers(arr, largerThan) {
-  return arr.filter(function (number) {
-    return number > largerThan;
-  });
-}
+const drivers = ["Sally", "Bob", "Freddy", "Claudia"];
 
-function returnFirstTwoDrivers() {
-  const drivers = ["Sally", "Bob", "Freddy", "Claudia"];
-  return drivers.slice(0, 2);
-}
+const filterNumbers = (arr, largerThan) => {
+  arr.filter((number) => number > largerThan);
+};
 
-function add(a, b) {
-  a = a || 1;
-  b = b || 1;
+const returnFirstTwoDrivers = () => drivers.slice(0, 2);
+
+function add(a = 1, b = 1) {
   return a + b;
 }
 
-function createGrid(array) {
-  return `Generates a ${array[0]} x ${array[1]} grid`;
+function createGrid([width, height]) {
+  return `Generates a ${width}} x ${height} grid`;
 }
 
-function sum() {
-  const argsArray = Array.prototype.slice.call(arguments);
-  return argsArray.reduce(function (a, b) {
+function sum(...args) {
+  return args.reduce(function (a, b) {
     return a + b;
   }, 0);
 }
 
-function addNumbers(numbers) {
+function addNumbers(...numbers) {
   return numbers.reduce(function (sum, number) {
     return sum + number;
   }, 0);
 }
 
-function calculate(product, numbers) {
+function calculate(product, ...numbers) {
   return numbers.map(function (number) {
     return number * product;
   });
 }
 
 function join(array1, array2) {
-  return array1.concat(array2);
+  return [...array1, ...array2];
 }
 
 const savedFile = {
@@ -50,7 +44,12 @@ const savedFile = {
 
 function fileSummary(file) {
   return (
-    "The file" + file.name + "." + file.extension + "is of size" + file.size
+    "The file" +
+    file.name +
+    "." +
+    file.extension +
+    "is of size" +
+    file.size
   );
 }
 
